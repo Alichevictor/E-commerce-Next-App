@@ -8,7 +8,7 @@ import { Menu } from "@headlessui/react";
 import "react-toastify/dist/ReactToastify.css";
 import { Store } from "../utils/Store";
 import DropdownLink from "./DropdownLink";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import SearchIcon from "@heroicons/react/24/outline/MagnifyingGlassIcon";
 import Image from "next/image";
 import { IoIosArrowDown } from "react-icons/io";
@@ -32,13 +32,13 @@ export default function Layout({ title, children }) {
     signOut({ callbackUrl: "/login" });
   };
 
-  const [query, setQuery] = useState("");
+  // const [query, setQuery] = useState("");
 
-  const router = useRouter();
-  const submitHandler = (e) => {
-    e.preventDefault();
-    router.push(`/search?query=${query}`);
-  };
+  // const router = useRouter();
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   router.push(`/search?query=${query}`);
+  // };
 
   const [showNav, setShowNav] = useState(false);
 
@@ -88,17 +88,16 @@ export default function Layout({ title, children }) {
               >
                 OBI-EXCEL TOOLS
               </Link> */}
-              <div className="responsive-container">
               <form
-                onSubmit={submitHandler}
-                className="mx-auto flex items-center   justify-center"
+                // onSubmit={submitHandler}
+                // className="mx-auto flex items-center   justify-center"
               >
-                <input
+                {/* <input
                   onChange={(e) => setQuery(e.target.value)}
                   type="text"
                   className="rounded-tr-none rounded-br-none p-1 text-sm   focus:ring-0"
                   placeholder="Search products"
-                />
+                /> */}
                 <button
                   className="rounded rounded-tl-none rounded-bl-none bg-white p-1 text-sm dark:text-black"
                   type="submit"
@@ -107,13 +106,13 @@ export default function Layout({ title, children }) {
                   <SearchIcon className="h-5 w-5"></SearchIcon>
                 </button>
               </form>
-              </div>
               {showNav ? (
                 <AiFillCloseCircle
                   onClick={handleCloseMenu}
                   size={30}
                   className="mr-5 lg:hidden cursor-pointer text-white transition-all duration-500 ease-in"
                 />
+                
               ) : (
                 <FaBars
                   onClick={handleShowMenu}
@@ -123,6 +122,7 @@ export default function Layout({ title, children }) {
                 />
               )}
             </div>
+            <br></br>
 
             <div
               className={
